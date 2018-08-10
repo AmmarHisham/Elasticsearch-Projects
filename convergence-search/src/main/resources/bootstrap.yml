@@ -1,0 +1,6 @@
+# code_snippet springApplicationName start
+spring:
+  application:
+    name: convergence-search
+    
+# code_snippet springApplicationName end

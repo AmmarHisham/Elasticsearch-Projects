@@ -1,0 +1,33 @@
+{
+  "sort": [
+    {
+      "cDealId": {
+        "order": "desc"
+      }
+    }
+  ],
+  "query": {
+    "bool": {
+      "must": {
+        "multi_match": {
+          "query": "church",
+          "type": "cross_fields",
+          "fields": [
+            "cDealName",
+            "cDealId",
+            "agencyId",
+            "agencyName",
+            "advertiserName",
+            "demoName"
+          ],
+          "operator": "and"
+        }
+      },
+      "filter": {
+        "term": {
+          "enabled": "true"
+        }
+      }
+    }
+  }
+}

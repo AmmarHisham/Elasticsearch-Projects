@@ -1,0 +1,19 @@
+applications:
+  - name: convergence-index-dev
+    path: ../convergence-index-0.0.1-SNAPSHOT.jar
+    instances: 1
+    memory: 1G
+    buildpack: https://github.com/cloudfoundry/java-buildpack#v4.6 
+
+services:
+ - methodman-dev-config-server
+ - methodman-dev-service-registry
+
+env:
+   CF_STAGING_TIMEOUT: 100
+   CF_STARTUP_TIMEOUT: 100
+   SPRING_PROFILES_ACTIVE: dev
+   http_proxy: http://proxy.inbcu.com:80
+   https_proxy: http://proxy.inbcu.com:80      
+   JAVA_OPTS: -Dappdynamics.https.proxyHost=proxy.inbcu.com -Dappdynamics.https.proxyPort=80 -Dappdynamics.http.proxyHost=proxy.inbcu.com -Dappdynamics.http.proxyPort=80 -Dappdynamics.agent.applicationName="convergence-index-dev" -Dappdynamics.agent.tierName=convergence-index-dev      
+      

@@ -1,0 +1,33 @@
+spring:
+ profiles: "default"
+ data:
+  elasticsearch:
+   cluster-name: methodman_dev
+   cluster-nodes: adsales-data-es-dev.inbcu.com
+   properties:
+    index:
+     query:
+      bool:
+       max_clause_count: 10240
+    userName: adsales-admin
+    password: BiktYG2HurW07S
+port: "N"
+
+
+sort:
+  field: id
+  
+filter:
+  field: enabled
+  value: true  
+
+server:
+  port: 9098
+    
+management:
+  security:
+    enabled: false
+    
+security:
+  basic:
+    enabled: false  

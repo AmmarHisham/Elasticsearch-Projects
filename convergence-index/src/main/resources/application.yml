@@ -1,0 +1,53 @@
+spring:
+ profiles: "default"
+ batch:
+  table-prefix: NBC_CUST.BATCH_
+  job:
+    enabled: false
+ datasource:
+  driverClassName: 'oracle.jdbc.driver.OracleDriver'
+  username: onair
+  password: onair
+  url: jdbc:oracle:thin:@//aoadbss00002c0.tfayd.com:15192/d124rpt
+  maximum-pool-size: 20
+  max-active: 10
+  min-idle: 2
+  max-idle: 5  
+  max-wait: 10000
+  testOnBorrow: true 
+  validationQuery: "select 1 from dual" 
+  validationInterval: 10000
+ jpa:
+  database-platform: 'org.hibernate.dialect.Oracle10gDialect'
+  hibernate:
+   ddl-auto: none
+  show-sql: false 
+ data:
+  elasticsearch:
+   cluster-name: methodman_dev
+   cluster-nodes: adsales-data-es-dev.inbcu.com
+   properties:
+    index:
+     query:
+      bool:
+       max_clause_count: 10240
+    userName: adsales-admin
+    password: BiktYG2HurW07S
+  mongodb:
+     database:  nbcapps
+     host: ashdbld00027.stg-tfayd.com
+     port: 27017
+     username: nbcappsUser
+     password: 4FD27fTU
+     repositories:
+      enabled: true   
+server:
+    compression:
+        enabled: true   
+        mime-types: text/html,text/css,application/javascript,application/json
+indexname: "convergence"
+pageStartLimit: 0
+pageEndLimit: 10
+
+port: "N"
+uniqueIndexName: ${vcap.application.application_uris:} 

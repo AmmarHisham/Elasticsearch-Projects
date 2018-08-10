@@ -1,0 +1,8 @@
+{
+	"resultFields": ["cDealName", "cDealId", "agencyName", "advertiserName", "demoName"],
+	"multiMatch":{
+		"input": "nbc",
+		"fields" : ["cDealName", "cDealId","agencyId","agencyName", "advertiserName", "demoName" ]
+		
+	}
+}

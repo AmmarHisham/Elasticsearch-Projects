@@ -1,0 +1,6 @@
+# code_snippet springApplicationName start
+spring:
+  application:
+    name: convergence-index
+    
+# code_snippet springApplicationName end

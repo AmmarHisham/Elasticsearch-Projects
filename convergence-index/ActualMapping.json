@@ -1,0 +1,71 @@
+{
+	"mappings": {
+		"convergence": {
+			"properties": {
+				
+						"advertiserId":{
+						  "type":"long"
+						},
+						"advertiserName":{
+						  "type":"text",
+						  "analyzer": "spl_analyzer",
+						  "norms": { "enabled": false }
+						},
+						"advertiserSFId":{
+						  "type":"text"
+						},
+						"agencyId":{
+						  "type":"long"
+						},
+						"agencyName":{
+						  "type":"text",
+						  "analyzer": "spl_analyzer",
+						  "norms": { "enabled": false }
+						},
+						"agencySFId":{
+						  "type":"text"
+						},
+						"id":{
+						  "type":"long"
+						},
+						"name":{
+						  "type":"text",
+						  "analyzer": "spl_analyzer",
+						  "norms": { "enabled": false }
+						},
+						"demoId":{
+						  "type":"long"
+						},
+						"demo":{
+						  "type":"text",
+						  "analyzer": "spl_analyzer",
+						  "norms": { "enabled": false }
+						}
+			}
+		}
+	},
+	"settings": {
+		"index": {
+			"number_of_shards": "2",
+			"max_result_window": "300000",
+			"number_of_replicas": "1",
+			"similarity": {
+				"default": {
+					"type": "scripted",
+					"script": {
+					  "source": "double tf = doc.freq/doc.freq ;return tf;"
+					}
+				}
+			  }
+		},
+		"analysis": {
+         "analyzer": {
+            "spl_analyzer": {
+               "type": "custom",
+               "tokenizer": "whitespace",
+               "filter": "lowercase"
+            }
+         }
+       }
+	}
+}
